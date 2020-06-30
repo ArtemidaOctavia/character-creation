@@ -1,0 +1,16 @@
+.statList {
+    display: inline-block;
+}
+
+.stat {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.description {
+    display: inline-block;
+}
+
+.button {
+    display: inline-block;
+}

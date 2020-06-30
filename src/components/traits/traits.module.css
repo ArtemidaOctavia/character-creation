@@ -1,0 +1,13 @@
+.traitsHolder {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.trait {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pickedTrait {
+    color: red;
+}

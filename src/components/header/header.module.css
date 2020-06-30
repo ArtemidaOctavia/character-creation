@@ -1,0 +1,15 @@
+.header {
+    margin-bottom: 10px;
+}
+
+.button {
+    padding: 5px
+}
+
+.pointsCounter {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+}

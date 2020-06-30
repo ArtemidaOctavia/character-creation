@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import HeaderContainer from "./components/header/headerContainer";
+import {Route} from "react-router-dom";
+import ProfessionContainer from "./components/profession/professionContainer";
+import StatsContainer from "./components/stats/statsContainer";
+import TraitsContainer from "./components/traits/traitsContainer";
+import SkillsContainer from "./components/skills/skillsContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HeaderContainer/>
+      <Route path={`/profession`}
+             render={() => <ProfessionContainer/>}/>
+      <Route path={`/stats`}
+             render={() => <StatsContainer/>}/>
+      <Route path={`/traits`}
+             render={() => <TraitsContainer/>}/>
+      <Route path={`/skills`}
+             render={() => <SkillsContainer/>}/>
+      {/*<Route path={`/description`}*/}
+             {/*render={() => <Description/>}/>*/}
     </div>
   );
 }
