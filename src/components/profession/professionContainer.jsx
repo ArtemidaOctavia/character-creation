@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Profession} from "./profession";
 
+
+
 let mapStateToProps = (state) => {
   return {
     professionList: state.profession.professionList,

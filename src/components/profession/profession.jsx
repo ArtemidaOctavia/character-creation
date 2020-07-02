@@ -3,22 +3,26 @@ import styles from "./profession.module.css"
 
 export const Profession = (props) => {
 
+  const pickProfession = (profession, professionName) => {
+    if (props.activeProfession === profession[professionName]) {
+      return;
+    }
+    if (props.activeProfession.cost) {
+      props.changePoints(props.activeProfession.cost)
+    }
+    props.activateProfession(profession[professionName]);
+    props.changePoints(-profession[professionName].cost);
+  };
+
   return (
     <div>
       <div>
-        {props.professionList.map((item, index) => {
-          let professionName = Object.keys(item)[0];
+        {props.professionList.map((profession, index) => {
+          let professionName = Object.keys(profession)[0];
           return <span onClick={() => {
-            if (props.activeProfession === item[professionName]) {
-              return;
-            }
-            if (props.activeProfession.cost) {
-              props.changePoints(props.activeProfession.cost)
-            }
-            props.activateProfession(item[professionName]);
-            props.changePoints(-item[professionName].cost);
+            pickProfession(profession, professionName)
           }} key={index}
-                       className={item[professionName] === props.activeProfession ?
+                       className={profession[professionName] === props.activeProfession ?
                          `${styles.profession} ${styles.active}` :
                          styles.profession}>{professionName}</span>
         })}

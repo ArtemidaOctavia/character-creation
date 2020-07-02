@@ -4,9 +4,9 @@ export const Skills = (props) => {
   return (
     <div>
       {
-        props.skillsList.map((skill) => {
+        props.skillsList.map((skill, index) => {
           let skillName = Object.keys(skill)[0];
-          return <div><span
+          return <div key={index}><span
             onMouseOver={() => {
               props.activateSkill(skill)
             }}

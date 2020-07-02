@@ -4,9 +4,9 @@ export const Stats = (props) => {
   return (
     <div>
       {
-        props.statsList.map((stat) => {
+        props.statsList.map((stat, index) => {
           let statName = Object.keys(stat)[0];
-          return <div><span
+          return <div key={index}><span
             onMouseOver={() => {
               props.activateStat(stat)
             }}
