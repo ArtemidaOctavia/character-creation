@@ -27,10 +27,6 @@ export const Profession = (props) => {
                          styles.profession}>{professionName}</span>
         })}
       </div>
-
-      <div>
-
-      </div>
     </div>
   )
 };
