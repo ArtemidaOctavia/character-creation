@@ -1,31 +1,40 @@
 let initialState = {
-  strength: 8,
-  dexterity: 8,
-  intelligence: 8,
-  perception: 8
+  statsList: [
+    {
+      strength: 8,
+      description: `strength descr`
+    },
+    {
+      dexterity: 8,
+      description: `dexterity descr`
+    },
+    {
+      intelligence: 8,
+      description: `intelligence descr`
+    },
+    {
+      perception: 8,
+      description: `perception descr`
+    },
+  ],
+  activeStat: null
 };
 
 export const statsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case `CHANGE-STRENGTH`:
+    case 'CHANGE-STAT':
+      let clone = JSON.parse(JSON.stringify(state));
+      clone.statsList.forEach((stat) => {
+        let [statName] = Object.keys(stat);
+        if (statName === action.stat) {
+          stat[statName] += action.value
+        }
+      });
+      return clone;
+    case `ACTIVATE-STAT`:
       return {
         ...state,
-        strength: state.strength + action.value
-      };
-    case `CHANGE-DEXTERITY`:
-      return {
-        ...state,
-        dexterity: state.dexterity + action.value
-      };
-    case `CHANGE-INTELLIGENCE`:
-      return {
-        ...state,
-        intelligence: state.intelligence + action.value
-      };
-    case `CHANGE-PERCEPTION`:
-      return {
-        ...state,
-        perception: state.perception + action.value
+        activeStat: action.stat
       };
     default:
       return state

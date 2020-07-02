@@ -4,30 +4,21 @@ import {connect} from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
-    strength: state.stats.strength,
-    dexterity: state.stats.dexterity,
-    intelligence: state.stats.intelligence,
-    perception: state.stats.perception,
-    pointsLeft: state.header.pointsLeft
+    statsList: state.stats.statsList,
+    activeStat: state.stats.activeStat
   }
 };
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    changeStrength: (value) => {
-      dispatch({type: 'CHANGE-STRENGTH', value})
-    },
-    changeDexterity: (value) => {
-      dispatch({type: 'CHANGE-DEXTERITY', value})
-    },
-    changeIntelligence: (value) => {
-      dispatch({type: 'CHANGE-INTELLIGENCE', value})
-    },
-    changePerception: (value) => {
-      dispatch({type: 'CHANGE-PERCEPTION', value})
+    changeStat: (stat, value) => {
+      dispatch({type: `CHANGE-STAT`, stat, value})
     },
     changePoints: (value) => {
-      dispatch({type: 'CHANGE-POINTS', value})
+      dispatch({type: `CHANGE-POINTS`, value})
+    },
+    activateStat: (stat) => {
+      dispatch({type: `ACTIVATE-STAT`, stat})
     }
   }
 };
