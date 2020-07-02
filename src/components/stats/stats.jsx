@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatDescription} from "./statDescription/statDescription";
 
 export const Stats = (props) => {
 
@@ -51,7 +52,7 @@ export const Stats = (props) => {
           </div>
         })
       }
-      <div>{props.activeStat && props.activeStat.description}</div>
+      {props.activeStat && <StatDescription statsList={props.statsList} stat={props.activeStat}/>}
     </div>
   )
 };
