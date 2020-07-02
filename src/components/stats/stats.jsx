@@ -12,8 +12,7 @@ export const Stats = (props) => {
             }}
             onMouseOut={() => {
               props.activateStat({})
-            }
-            }>
+            }}>
             {statName} {stat[statName]}
             <button onClick={() => {
               if (stat[statName] >= 1) {

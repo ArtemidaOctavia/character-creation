@@ -4,16 +4,15 @@ export const Skills = (props) => {
   return (
     <div>
       {
-        props.skillsList.map((skill, index) => {
+        props.skillsList.map((skill) => {
           let skillName = Object.keys(skill)[0];
-          return <div key={index}><span
+          return <div><span
             onMouseOver={() => {
               props.activateSkill(skill)
             }}
             onMouseOut={() => {
-              props.activateSkill({})
-            }
-            }>
+              props.activateSkill(null)
+            }}>
             {skillName} {skill[skillName]}
             <button onClick={() => {
               if (skill[skillName] >= 1) {
