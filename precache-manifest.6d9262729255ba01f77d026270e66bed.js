@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "95cdcdbd45e0aeb67c692c1e28ecd134",
+    "revision": "a68a22c98c23c7e109fe47230292513e",
     "url": "/character-creation/index.html"
   },
   {
-    "revision": "082b10732fcaedcb0d98",
+    "revision": "f29a32a7687698f57183",
     "url": "/character-creation/static/css/main.f7ccd34c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/character-creation/static/js/2.b74f1740.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "082b10732fcaedcb0d98",
-    "url": "/character-creation/static/js/main.3ca62987.chunk.js"
+    "revision": "f29a32a7687698f57183",
+    "url": "/character-creation/static/js/main.5d06c19f.chunk.js"
   },
   {
     "revision": "0a81f1485d985977068d",
