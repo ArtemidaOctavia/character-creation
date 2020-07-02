@@ -1,19 +1,19 @@
 let initialState = {
   skillsList: [
     {
-      melee: 0,
+      melee: 1,
       description: `melee descr`
     },
     {
-      crafting: 0,
+      crafting: 1,
       description: `crafting descr`
     },
     {
-      tailoring: 0,
+      tailoring: 1,
       description: `tailoring descr`
     },
     {
-      medicine: 0,
+      medicine: 1,
       description: `medicine descr`
     },
   ],
