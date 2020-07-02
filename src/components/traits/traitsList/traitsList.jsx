@@ -12,7 +12,7 @@ export const TraitsList = (props) => {
   return (
       <div className={styles.traitsHolder}>
         {
-          props.goodTraitsList.map((item, index) => {
+          props.traitsList.map((item, index) => {
             let traitName = Object.keys(item)[0];
             return <span
               key={index}

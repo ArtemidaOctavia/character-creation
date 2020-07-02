@@ -1,6 +1,33 @@
 import React from 'react';
 
 export const Stats = (props) => {
+
+  const increaseStat = (stat, statName) => {
+    if (stat[statName] >= 14) {
+      return
+    }
+    if (stat[statName] < 12) {
+      props.changeStat(statName, 1);
+      props.changePoints(-1)
+    } else {
+      props.changeStat(statName, 1);
+      props.changePoints(-2)
+    }
+  };
+
+  const decreaseStat = (stat, statName) => {
+    if (stat[statName] <= 4) {
+      return
+    }
+    if (stat[statName] <= 12) {
+      props.changeStat(statName, -1);
+      props.changePoints(1)
+    } else {
+      props.changeStat(statName, -1);
+      props.changePoints(2)
+    }
+  };
+
   return (
     <div>
       {
@@ -11,18 +38,14 @@ export const Stats = (props) => {
               props.activateStat(stat)
             }}
             onMouseOut={() => {
-              props.activateStat({})
+              props.activateStat(null)
             }}>
             {statName} {stat[statName]}
             <button onClick={() => {
-              if (stat[statName] >= 1) {
-                props.changeStat(statName, -1);
-                props.changePoints(1)
-              }
+              decreaseStat(stat, statName)
             }}>-</button>
             <button onClick={() => {
-              props.changeStat(statName, 1);
-              props.changePoints(-1)
+              increaseStat(stat, statName)
             }}>+</button>
           </span>
           </div>
