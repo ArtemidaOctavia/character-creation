@@ -63,20 +63,13 @@ export const Skills = (props) => {
       {
         props.skillsList.map((skill) => {
           let skillName = Object.keys(skill)[0];
-          return <div><span
-            onMouseOver={() => {
-              props.activateSkill(skill)
-            }}
-            onMouseOut={() => {
-              props.activateSkill(null)
-            }}>
+          return <div>
+            <span
+              onMouseOver={() => props.activateSkill(skill)}
+              onMouseOut={() => props.activateSkill(null)}>
             {skillName} {skill[skillName]}
-            <button onClick={() => {
-              decreaseSkill(skill, skillName)
-            }}>-</button>
-            <button onClick={() => {
-              increaseSkill(skill, skillName)
-            }}>+</button>
+              <button onClick={() => decreaseSkill(skill, skillName)}>-</button>
+            <button onClick={() => increaseSkill(skill, skillName)}>+</button>
           </span>
           </div>
         })

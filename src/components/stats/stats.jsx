@@ -35,19 +35,11 @@ export const Stats = (props) => {
         props.statsList.map((stat, index) => {
           let statName = Object.keys(stat)[0];
           return <div key={index}><span
-            onMouseOver={() => {
-              props.activateStat(stat)
-            }}
-            onMouseOut={() => {
-              props.activateStat(null)
-            }}>
+            onMouseOver={() => props.activateStat(stat)}
+            onMouseOut={() => props.activateStat(null)}>
             {statName} {stat[statName]}
-            <button onClick={() => {
-              decreaseStat(stat, statName)
-            }}>-</button>
-            <button onClick={() => {
-              increaseStat(stat, statName)
-            }}>+</button>
+            <button onClick={() => decreaseStat(stat, statName)}>-</button>
+            <button onClick={() => increaseStat(stat, statName)}>+</button>
           </span>
           </div>
         })
