@@ -17,12 +17,12 @@ export const StatDescription = (props) => {
         case `dexterity`:
           return<div>
             <div>Close combat precision modifier: {(value * 0.25).toFixed(2)}</div>
-            <div>Throwing penalty for one point of target dodge skill: {(value * 3.125).toFixed(0)}</div>
+            <div>Throwing penalty for one point of target dodge skill: {(45 - (value * 3.125)).toFixed(0)}</div>
             <div>Ranged combat penalty: {-16 + value}</div>
           </div>;
         case `intelligence`:
           return<div>
-            <div>Reading time: {(value * 12.5).toFixed(0)}%</div>
+            <div>Reading speed: {(value * 12.5).toFixed(0)}%</div>
             <div>Craft speed bonus: {value}%</div>
           </div>;
         case `perception`:
