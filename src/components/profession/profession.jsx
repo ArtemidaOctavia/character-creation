@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./profession.module.css"
+import {ProfessionDescription} from "./professionDescription/professionDescription";
 
 export const Profession = (props) => {
 
@@ -7,8 +8,8 @@ export const Profession = (props) => {
     if (props.activeProfession === profession[professionName]) {
       return;
     }
-    if (props.activeProfession.cost) {
-      props.changePoints(props.activeProfession.cost)
+    if (props.activeProfession) {
+        props.changePoints(props.activeProfession.cost)
     }
     props.activateProfession(profession[professionName]);
     props.changePoints(-profession[professionName].cost);
@@ -25,6 +26,7 @@ export const Profession = (props) => {
                          styles.profession}>{professionName}</span>
         })}
       </div>
+      {props.activeProfession && <ProfessionDescription profession={props.activeProfession}/>}
     </div>
   )
 };
