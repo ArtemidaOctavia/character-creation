@@ -5,7 +5,8 @@ import {Skills} from "./skills";
 let mapStateToProps = (state) => {
   return {
     skillsList: state.skills.skillsList,
-    activeSkill: state.skills.activeSkill
+    activeSkill: state.skills.activeSkill,
+    profession: state.profession.activeProfession
   }
 };
 
