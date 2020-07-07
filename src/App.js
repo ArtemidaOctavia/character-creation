@@ -6,6 +6,7 @@ import ProfessionContainer from "./components/profession/professionContainer";
 import StatsContainer from "./components/stats/statsContainer";
 import TraitsContainer from "./components/traits/traitsContainer";
 import SkillsContainer from "./components/skills/skillsContainer";
+import DescriptionContainer from "./components/description/descriptionContainer";
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
              render={() => <TraitsContainer/>}/>
       <Route path={`/skills`}
              render={() => <SkillsContainer/>}/>
-      {/*<Route path={`/description`}*/}
-             {/*render={() => <Description/>}/>*/}
+      <Route path={`/description`}
+             render={() => <DescriptionContainer/>}/>
     </div>
   );
 }

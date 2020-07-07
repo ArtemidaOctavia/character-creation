@@ -2,8 +2,9 @@ let initialState = {
   professionList: [
     {
       Ninja: {
+        name: `Ninja`,
         cost: 3,
-        description: `A shadow warrior from ancient Japan`,
+        description: `A shadow warrior from feudal Japan`,
         skillBonus: [{melee: 2}],
         wield: `katana`,
         appearence: [`tabi`, `kimono`, `mask`],
@@ -12,6 +13,7 @@ let initialState = {
     },
     {
       Hobo: {
+        name: `Hobo`,
         cost: 1,
         description: `A man, who chose freedom instead living in society`,
         skillBonus: [{tailoring: 1}, {crafting: 2}],

@@ -4,8 +4,7 @@ import {Header} from "./header";
 
 let mapStateToProps = (state) => {
   return {
-    pointsLeft: state.header.pointsLeft,
-    pickedTraits: state.traits.pickedTraits
+    pointsLeft: state.header.pointsLeft
   }
 };
 
@@ -17,5 +16,5 @@ let mapDispatchToProps = (dispatch) => {
   }
 };
 
-const HeaderContainer =  connect(mapStateToProps, mapDispatchToProps)(Header);
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
 export default HeaderContainer;
