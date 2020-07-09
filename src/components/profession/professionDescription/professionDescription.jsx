@@ -1,15 +1,6 @@
 import React from 'react';
 import styles from './professionDescription.module.css'
 
-// Ninja: {
-//   cost: 3,
-//   description: `A shadow warrior from ancient Japan`,
-//   skillBonus: [{melee: 2}],
-//   wield: `katana`,
-//   appearence: [`tabi`, `kimono`, `mask`],
-//   inventory: [`smoke grenades`, `kunai`, `sushi`]
-// }
-
 export const ProfessionDescription = (props) => {
 
   let renderSkillsBonus = (skills) => skills.map((skill, index) => {
@@ -24,20 +15,26 @@ export const ProfessionDescription = (props) => {
 
   return (
     <div>
-      <div className={styles.thing}>{props.profession.description}</div>
-      <div className={styles.thing}>
+      <div className={styles.element}>{props.profession.description}</div>
+
+      <div className={styles.element}>
         <div>Profession skills:</div>
-        {renderSkillsBonus(props.profession.skillBonus)}</div>
-      <div className={styles.thing}>
-        <div>Wield:</div>
-        {props.profession.wield ? props.profession.wield : `none`}</div>
-      <div className={styles.thing}>
-        <div>Appearence:</div>
-        {renderItems(props.profession.appearence)}
+        {props.profession.skillBonus ? renderSkillsBonus(props.profession.skillBonus) : 'none'}
       </div>
-      <div className={styles.thing}>
+
+      <div className={styles.element}>
+        <div>Wield:</div>
+        {props.profession.wield ? props.profession.wield : `none`}
+      </div>
+
+      <div className={styles.element}>
+        <div>Appearence:</div>
+        {props.profession.appearence ? renderItems(props.profession.appearence) : `none`}
+      </div>
+
+      <div className={styles.element}>
         <div>Inventory:</div>
-        {renderItems(props.profession.inventory)}
+        {props.profession.inventory ? renderItems(props.profession.inventory) : `none`}
       </div>
     </div>
   )

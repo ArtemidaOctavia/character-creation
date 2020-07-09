@@ -62,7 +62,7 @@ export const Skills = (props) => {
     let bonus = bonusSkills.filter((bonusSkill) => {
       return Object.keys(bonusSkill)[0] === Object.keys(skill)[0]
     });
-    if (bonus[0])  {
+    if (bonus[0]) {
       let bonusSkillName = Object.keys(bonus[0])[0];
       return <span> (+{bonus[0][bonusSkillName]})</span>
     }
@@ -78,7 +78,7 @@ export const Skills = (props) => {
               onMouseOver={() => props.activateSkill(skill)}
               onMouseOut={() => props.activateSkill(null)}>
             {skillName} {skill[skillName]}{props.profession && renderSkillsBonus(skill, props.profession.skillBonus)}
-              <button onClick={() => decreaseSkill(skill, skillName)}>-</button>
+            <button onClick={() => decreaseSkill(skill, skillName)}>-</button>
             <button onClick={() => increaseSkill(skill, skillName)}>+</button>
           </span>
           </div>
