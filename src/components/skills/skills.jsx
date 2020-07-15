@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const Skills = (props) => {
-
   const increaseSkill = (skill, skillName) => {
     switch (skill[skillName]) {
       case 1:
@@ -59,12 +58,17 @@ export const Skills = (props) => {
   };
 
   const renderSkillsBonus = (skill, bonusSkills) => {
-    let bonus = bonusSkills.filter((bonusSkill) => {
-      return Object.keys(bonusSkill)[0] === Object.keys(skill)[0]
-    });
+    const bonus = bonusSkills.filter((bonusSkill) => Object.keys(bonusSkill)[0] === Object.keys(skill)[0]);
     if (bonus[0]) {
-      let bonusSkillName = Object.keys(bonus[0])[0];
-      return <span> (+{bonus[0][bonusSkillName]})</span>
+      const bonusSkillName = Object.keys(bonus[0])[0];
+      return (
+        <span>
+          {' '}
+          (+
+          {bonus[0][bonusSkillName]}
+          )
+        </span>
+      );
     }
   };
 
@@ -72,19 +76,25 @@ export const Skills = (props) => {
     <div>
       {
         props.skillsList.map((skill, index) => {
-          let skillName = Object.keys(skill)[0];
-          return <div key={index}>
-            <span
-              onMouseOver={() => props.activateSkill(skill)}
-              onMouseOut={() => props.activateSkill(null)}>
-            {skillName} {skill[skillName]}{props.profession && renderSkillsBonus(skill, props.profession.skillBonus)}
-            <button onClick={() => decreaseSkill(skill, skillName)}>-</button>
-            <button onClick={() => increaseSkill(skill, skillName)}>+</button>
-          </span>
-          </div>
+          const skillName = Object.keys(skill)[0];
+          return (
+            <div key={index}>
+              <span
+                onMouseOver={() => props.activateSkill(skill)}
+                onMouseOut={() => props.activateSkill(null)}
+              >
+                {skillName}
+                {' '}
+                {skill[skillName]}
+                {props.profession && renderSkillsBonus(skill, props.profession.skillBonus)}
+                <button type="button" onClick={() => decreaseSkill(skill, skillName)}>-</button>
+                <button type="button" onClick={() => increaseSkill(skill, skillName)}>+</button>
+              </span>
+            </div>
+          );
         })
       }
       <div>{props.activeSkill && props.activeSkill.description}</div>
     </div>
-  )
+  );
 };

@@ -5,9 +5,12 @@
 
 .trait {
     display: block;
-    margin-bottom: 5px;
 }
 
-.pickedTrait {
+.pickedBadTrait {
     color: red;
+}
+
+.pickedGoodTrait {
+    color: green;
 }
