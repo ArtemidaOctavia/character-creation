@@ -16,3 +16,9 @@
 .active {
     color: white;
 }
+
+.button {
+    background-color: black;
+    color: white;
+    margin: 5px;
+}

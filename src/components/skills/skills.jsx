@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './skills.module.css';
 
 export const Skills = (props) => {
   const increaseSkill = (skill, skillName) => {
@@ -87,8 +88,18 @@ export const Skills = (props) => {
                 {' '}
                 {skill[skillName]}
                 {props.profession && renderSkillsBonus(skill, props.profession.skillBonus)}
-                <button type="button" onClick={() => decreaseSkill(skill, skillName)}>-</button>
-                <button type="button" onClick={() => increaseSkill(skill, skillName)}>+</button>
+                <button
+                  className={styles.button}
+                  onClick={() => decreaseSkill(skill, skillName)}
+                >
+                  -
+                </button>
+                <button
+                  className={styles.button}
+                  onClick={() => increaseSkill(skill, skillName)}
+                >
+                  +
+                </button>
               </span>
             </div>
           );

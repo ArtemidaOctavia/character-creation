@@ -39,7 +39,6 @@ export const Stats = (props) => {
             if (props.activeStat) {
               style = statName === Object.keys(props.activeStat)[0] ? styles.active : '';
             }
-            console.log(style);
             return (
               <div
                 key={index}
@@ -51,8 +50,10 @@ export const Stats = (props) => {
                   {statName}
                   {' '}
                   {stat[statName]}
-                  <button onClick={() => decreaseStat(stat, statName)}>-</button>
-                  <button onClick={() => increaseStat(stat, statName)}>+</button>
+                  <button className={styles.button}
+                          onClick={() => decreaseStat(stat, statName)}>-</button>
+                  <button className={styles.button}
+                          onClick={() => increaseStat(stat, statName)}>+</button>
                 </span>
               </div>
             );
@@ -60,7 +61,8 @@ export const Stats = (props) => {
         }
       </div>
       <div className={styles.description}>
-        {props.activeStat && <StatDescription statsList={props.statsList} stat={props.activeStat} />}
+        {props.activeStat
+        && <StatDescription statsList={props.statsList} stat={props.activeStat} />}
       </div>
     </div>
   );
