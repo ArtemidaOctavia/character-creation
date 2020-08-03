@@ -5,13 +5,12 @@ export const DescriptionStats = (props) => (
   <div className={styles.element}>
     <div>Stats:</div>
     {props.statsList.map((stat, index) => {
-      const statName = Object.keys(stat)[0];
       return (
         <div key={index}>
           <span>
-            {statName}
+            {stat.name}
             {' '}
-            {stat[statName]}
+            {stat.value}
           </span>
         </div>
       );

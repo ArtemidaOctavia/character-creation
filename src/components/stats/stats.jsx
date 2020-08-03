@@ -7,28 +7,28 @@ export const Stats = (props) => {
   const skillMaxValue = 14;
   const skillSoftCap = 12;
 
-  const increaseStat = (stat, statName) => {
-    if (stat[statName] >= skillMaxValue) {
+  const increaseStat = (stat) => {
+    if (stat.value >= skillMaxValue) {
       return;
     }
-    if (stat[statName] < skillSoftCap) {
-      props.changeStat(statName, 1);
+    if (stat.value < skillSoftCap) {
+      props.changeStat(stat.name, 1);
       props.changePoints(-1);
     } else {
-      props.changeStat(statName, 1);
+      props.changeStat(stat.name, 1);
       props.changePoints(-2);
     }
   };
 
-  const decreaseStat = (stat, statName) => {
-    if (stat[statName] <= skillMinValue) {
+  const decreaseStat = (stat) => {
+    if (stat.value <= skillMinValue) {
       return;
     }
-    if (stat[statName] <= skillSoftCap) {
-      props.changeStat(statName, -1);
+    if (stat.value <= skillSoftCap) {
+      props.changeStat(stat.name, -1);
       props.changePoints(1);
     } else {
-      props.changeStat(statName, -1);
+      props.changeStat(stat.name, -1);
       props.changePoints(2);
     }
   };
@@ -38,10 +38,9 @@ export const Stats = (props) => {
       <div className={styles.statsList}>
         {
           props.statsList.map((stat, index) => {
-            const statName = Object.keys(stat)[0];
             let style;
             if (props.activeStat) {
-              style = statName === Object.keys(props.activeStat)[0] ? styles.active : '';
+              style = stat.name === props.activeStat.name ? styles.active : '';
             }
             return (
               <div
@@ -51,18 +50,18 @@ export const Stats = (props) => {
                 <span
                   onClick={() => props.activateStat(stat)}
                 >
-                  {statName}
+                  {stat.name}
                   {' '}
-                  {stat[statName]}
+                  {stat.value}
                   <button
                     className={styles.button}
-                    onClick={() => decreaseStat(stat, statName)}
+                    onClick={() => decreaseStat(stat)}
                   >
                     -
                   </button>
                   <button
                     className={styles.button}
-                    onClick={() => increaseStat(stat, statName)}
+                    onClick={() => increaseStat(stat)}
                   >
                     +
                   </button>

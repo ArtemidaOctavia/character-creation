@@ -1,19 +1,23 @@
 const initialState = {
   statsList: [
     {
-      strength: 8,
+      name: 'strength',
+      value: 8,
       description: 'strength descr',
     },
     {
-      dexterity: 8,
+      name: 'dexterity',
+      value: 8,
       description: 'dexterity descr',
     },
     {
-      intelligence: 8,
+      name: 'intelligence',
+      value: 8,
       description: 'intelligence descr',
     },
     {
-      perception: 8,
+      name: 'perception',
+      value: 8,
       description: 'perception descr',
     },
   ],
@@ -25,9 +29,9 @@ export const statsReducer = (state = initialState, action) => {
     case 'CHANGE-STAT':
       const clone = JSON.parse(JSON.stringify(state));
       clone.statsList.forEach((stat) => {
-        const [statName] = Object.keys(stat);
+        const statName = stat.name;
         if (statName === action.stat) {
-          stat[statName] += action.value;
+          stat.value += action.value;
         }
       });
       return clone;
