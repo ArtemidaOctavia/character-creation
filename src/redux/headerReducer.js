@@ -1,5 +1,5 @@
-let initialState = {
-  pointsLeft: 8
+const initialState = {
+  pointsLeft: 8,
 };
 
 export const headerReducer = (state = initialState, action) => {

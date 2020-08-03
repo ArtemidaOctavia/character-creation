@@ -2,25 +2,22 @@ import React from 'react';
 import styles from '../description.module.css';
 
 const getSkillsWithBonuses = (skills, professionBonus) => skills.map((skill) => {
-  const skillName = Object.keys(skill)[0];
-  professionBonus.forEach((bonusItem) => {
-    const bonusItemName = Object.keys(bonusItem)[0];
-    if (skillName === bonusItemName) {
-      skill = { ...skill, [skillName]: skill[skillName] + bonusItem[bonusItemName] };
+  professionBonus.forEach((bonusSkill) => {
+    if (skill.name === bonusSkill.name) {
+      skill = { ...skill, ['value']: skill.value + bonusSkill.value };
     }
   });
   return skill;
-}).filter((skill) => skill[Object.keys(skill)[0]] !== 1);
+}).filter((skill) => skill.value !== 1);
 
-const getSkills = (skills) => skills.filter((skill) => skill[Object.keys(skill)[0]] !== 1);
+const getSkills = (skills) => skills.filter((skill) => skill.value !== 1);
 
 const renderSkills = (skills) => skills.map((skill, index) => {
-  const skillName = Object.keys(skill)[0];
   return (
     <div key={index}>
-      {skillName}
+      {skill.name}
       {' '}
-      {skill[skillName]}
+      {skill.value}
     </div>
   );
 });

@@ -3,14 +3,12 @@ import styles from './professionDescription.module.css';
 
 export const ProfessionDescription = (props) => {
   const renderSkillsBonus = (skills) => skills.map((skill, index) => {
-    const skillName = [Object.keys(skill)];
-    const bonusValue = skill[Object.keys(skill)];
     return (
       <div key={index}>
-        {skillName}
+        {skill.name}
         :
         {' '}
-        {bonusValue}
+        {skill.value}
       </div>
     );
   });

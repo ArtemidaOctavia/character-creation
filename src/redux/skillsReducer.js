@@ -1,40 +1,43 @@
-let initialState = {
+const initialState = {
   skillsList: [
     {
-      melee: 1,
-      description: `melee descr`
+      name: 'melee',
+      value: 1,
+      description: 'melee descr',
     },
     {
-      crafting: 1,
-      description: `crafting descr`
+      name: 'crafting',
+      value: 1,
+      description: 'crafting descr',
     },
     {
-      tailoring: 1,
-      description: `tailoring descr`
+      name: 'tailoring',
+      value: 1,
+      description: 'tailoring descr',
     },
     {
-      medicine: 1,
-      description: `medicine descr`
+      name: 'medicine',
+      value: 1,
+      description: 'medicine descr',
     },
   ],
-  activeSkill: null
+  activeSkill: null,
 };
 
 export const skillsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE-SKILL':
-      let clone = JSON.parse(JSON.stringify(state));
+      const clone = JSON.parse(JSON.stringify(state));
       clone.skillsList.forEach((skill) => {
-        let [skillName] = Object.keys(skill);
-        if (skillName === action.skill) {
-          skill[skillName] += action.value
+        if (skill.name === action.skill) {
+          skill.value += action.value;
         }
       });
       return clone;
-    case `ACTIVATE-SKILL`:
+    case 'ACTIVATE-SKILL':
       return {
         ...state,
-        activeSkill: action.skill
+        activeSkill: action.skill,
       };
     default:
       return state;
