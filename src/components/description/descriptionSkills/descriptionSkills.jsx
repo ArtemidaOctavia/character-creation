@@ -22,11 +22,11 @@ const renderSkills = (skills) => skills.map((skill, index) => {
   );
 });
 
-export const DescriptionSkills = (props) => (
+export const DescriptionSkills = ({ profession, skills }) => (
   <div className={styles.element}>
     <div>Skills:</div>
-    {props.profession
-      ? renderSkills(getSkillsWithBonuses(props.skills, props.profession.skillBonus))
-      : renderSkills(getSkills(props.skills))}
+    {profession
+      ? renderSkills(getSkillsWithBonuses(skills, profession.skillBonus))
+      : renderSkills(getSkills(skills))}
   </div>
 );

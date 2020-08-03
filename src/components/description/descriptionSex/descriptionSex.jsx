@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from '../description.module.css';
 
-export const DescriptionSex = (props) => (
+export const DescriptionSex = ({ setSex, sex }) => (
   <div className={styles.element}>
     {' '}
     {'Sex: '}
-    <span onClick={() => props.setSex('male')} className={props.sex === 'male' ? styles.active : ''}>
+    <span onClick={() => setSex('male')} className={sex === 'male' ? styles.active : ''}>
       Male
     </span>
     <span>/</span>
-    <span onClick={() => props.setSex('female')} className={props.sex === 'female' ? styles.active : ''}>
+    <span onClick={() => setSex('female')} className={sex === 'female' ? styles.active : ''}>
       Female
     </span>
   </div>

@@ -7,50 +7,55 @@ import { DescriptionProfession } from './descriptionProfession/descriptionProfes
 import { DescriptionSkills } from './descriptionSkills/descriptionSkills';
 import styles from './description.module.css';
 
-export const Description = (props) => (
+export const Description = ({
+  nameFieldActive, toggleField, setName,
+  name, setSex, sex, heightFieldActive,
+  setHeight, height, ageFieldActive, setAge,
+  age, statsList, pickedTraits, profession, skills,
+}) => (
   <div>
     <div className={styles.anthropometric}>
       <DescriptionElement
-        field={props.nameFieldActive}
+        field={nameFieldActive}
         type="String"
         valueName="Name"
         fieldName="nameFieldActive"
-        toggleField={props.toggleField}
-        setValue={props.setName}
-        value={props.name}
+        toggleField={toggleField}
+        setValue={setName}
+        value={name}
       />
 
-      <DescriptionSex setSex={props.setSex} sex={props.sex} />
+      <DescriptionSex setSex={setSex} sex={sex} />
 
       <DescriptionElement
-        field={props.heightFieldActive}
+        field={heightFieldActive}
         type="Number"
         valueName="Height"
         fieldName="heightFieldActive"
-        toggleField={props.toggleField}
-        setValue={props.setHeight}
-        value={props.height}
+        toggleField={toggleField}
+        setValue={setHeight}
+        value={height}
       />
 
       <DescriptionElement
-        field={props.ageFieldActive}
+        field={ageFieldActive}
         type="Number"
         valueName="Age"
         fieldName="ageFieldActive"
-        toggleField={props.toggleField}
-        setValue={props.setAge}
-        value={props.age}
+        toggleField={toggleField}
+        setValue={setAge}
+        value={age}
       />
     </div>
 
     <div className={styles.environmental}>
-      <DescriptionStats statsList={props.statsList} />
+      <DescriptionStats statsList={statsList} />
 
-      <DescriptionTraits pickedTraits={props.pickedTraits} />
+      <DescriptionTraits pickedTraits={pickedTraits} />
 
-      <DescriptionProfession profession={props.profession} />
+      <DescriptionProfession profession={profession} />
 
-      <DescriptionSkills profession={props.profession} skills={props.skills} />
+      <DescriptionSkills profession={profession} skills={skills} />
     </div>
   </div>
 );

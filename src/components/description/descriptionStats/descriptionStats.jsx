@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../description.module.css';
 
-export const DescriptionStats = (props) => (
+export const DescriptionStats = ({ statsList }) => (
   <div className={styles.element}>
     <div>Stats:</div>
-    {props.statsList.map((stat, index) => {
+    {statsList.map((stat, index) => {
       return (
         <div key={index}>
           <span>

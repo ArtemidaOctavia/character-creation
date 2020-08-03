@@ -1,18 +1,20 @@
 import React from 'react';
 import styles from '../description.module.css';
 
-export const DescriptionElement = (props) => (
+export const DescriptionElement = ({
+  valueName, field, type, toggleField, fieldName, setValue, value,
+}) => (
   <div className={styles.element}>
-    {`${props.valueName}: `}
-    {props.field
+    {`${valueName}: `}
+    {field
       ? (
         <input
           autoFocus
-          type={`${props.type}`}
-          onMouseOut={() => props.toggleField(`${props.fieldName}`)}
-          onChange={(event) => props.setValue(event.target.value)}
+          type={`${type}`}
+          onMouseOut={() => toggleField(`${fieldName}`)}
+          onChange={(event) => setValue(event.target.value)}
         />
       )
-      : <span onClick={() => props.toggleField(`${props.fieldName}`)}>{props.value}</span>}
+      : <span onClick={() => toggleField(`${fieldName}`)}>{value}</span>}
   </div>
 );

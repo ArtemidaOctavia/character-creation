@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './header.module.css';
 
-export const Header = (props) => (
+export const Header = ({ pointsLeft }) => (
   <div className={styles.header}>
     <nav className={styles.buttonsHolder}>
       <NavLink className={styles.button} to="/profession">Profession</NavLink>
@@ -11,10 +11,10 @@ export const Header = (props) => (
       <NavLink className={styles.button} to="/skills">Skills</NavLink>
       <NavLink className={styles.button} to="/description">Description</NavLink>
     </nav>
-    <div className={props.pointsLeft < 0 ? `${styles.error} ${styles.points}` : styles.points}>
+    <div className={pointsLeft < 0 ? `${styles.error} ${styles.points}` : styles.points}>
       Points left:
       {' '}
-      {props.pointsLeft}
+      {pointsLeft}
     </div>
   </div>
 );

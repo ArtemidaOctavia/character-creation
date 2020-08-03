@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const StatDescription = (props) => {
-  const renderStatInfluence = (stat) => {
-    if (stat) {
-      const activeStatName = Object.keys(stat)[0];
-      const targetStat = props.statsList.filter((item) => Object.keys(item)[0] === activeStatName);
+export const StatDescription = ({ statsList, stat }) => {
+  const renderStatInfluence = (characteristic) => {
+    if (characteristic) {
+      const activeStatName = Object.keys(characteristic)[0];
+      const targetStat = statsList.filter((item) => Object.keys(item)[0] === activeStatName);
       const value = targetStat[0][activeStatName];
       switch (activeStatName) {
         case 'strength':
@@ -72,8 +72,8 @@ export const StatDescription = (props) => {
 
   return (
     <div>
-      {renderStatInfluence(props.stat)}
-      {props.stat.description}
+      {renderStatInfluence(stat)}
+      {stat.description}
     </div>
   );
 };

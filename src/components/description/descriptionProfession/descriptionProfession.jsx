@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from '../description.module.css';
 
-export const DescriptionProfession = (props) => (
+export const DescriptionProfession = ({ profession }) => (
   <div className={styles.element}>
     <div>Profession:</div>
-    {props.profession && props.profession.name}
+    {profession && profession.name}
   </div>
 );

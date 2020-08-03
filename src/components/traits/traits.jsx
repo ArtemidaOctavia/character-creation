@@ -1,24 +1,26 @@
 import React from 'react';
 import { TraitsList } from './traitsList/traitsList';
 
-export const Traits = (props) => (
+export const Traits = ({
+  goodTraitsList, pickTrait, activateTrait, changePoints, pickedTraits, badTraitsList, activeTrait,
+}) => (
   <div>
     <TraitsList
-      traitsList={props.goodTraitsList}
-      pickTrait={props.pickTrait}
-      activateTrait={props.activateTrait}
-      changePoints={props.changePoints}
-      pickedTraits={props.pickedTraits}
-      style="pickedGoodTrait"
+      traitsList={goodTraitsList}
+      pickTrait={pickTrait}
+      activateTrait={activateTrait}
+      changePoints={changePoints}
+      pickedTraits={pickedTraits}
+      traitStyle="pickedGoodTrait"
     />
     <TraitsList
-      traitsList={props.badTraitsList}
-      pickTrait={props.pickTrait}
-      activateTrait={props.activateTrait}
-      changePoints={props.changePoints}
-      pickedTraits={props.pickedTraits}
-      style="pickedBadTrait"
+      traitsList={badTraitsList}
+      pickTrait={pickTrait}
+      activateTrait={activateTrait}
+      changePoints={changePoints}
+      pickedTraits={pickedTraits}
+      traitStyle="pickedBadTrait"
     />
-    <div>{props.activeTrait ? `${props.activeTrait.description}, cost ${props.activeTrait.cost}` : ''}</div>
+    <div>{activeTrait ? `${activeTrait.description}, cost ${activeTrait.cost}` : ''}</div>
   </div>
 );
