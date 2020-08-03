@@ -3,11 +3,15 @@ import { StatDescription } from './statDescription/statDescription';
 import styles from './stats.module.css';
 
 export const Stats = (props) => {
+  const skillMinValue = 4;
+  const skillMaxValue = 14;
+  const skillSoftCap = 12;
+
   const increaseStat = (stat, statName) => {
-    if (stat[statName] >= 14) {
+    if (stat[statName] >= skillMaxValue) {
       return;
     }
-    if (stat[statName] < 12) {
+    if (stat[statName] < skillSoftCap) {
       props.changeStat(statName, 1);
       props.changePoints(-1);
     } else {
@@ -17,10 +21,10 @@ export const Stats = (props) => {
   };
 
   const decreaseStat = (stat, statName) => {
-    if (stat[statName] <= 4) {
+    if (stat[statName] <= skillMinValue) {
       return;
     }
-    if (stat[statName] <= 12) {
+    if (stat[statName] <= skillSoftCap) {
       props.changeStat(statName, -1);
       props.changePoints(1);
     } else {
@@ -50,10 +54,18 @@ export const Stats = (props) => {
                   {statName}
                   {' '}
                   {stat[statName]}
-                  <button className={styles.button}
-                          onClick={() => decreaseStat(stat, statName)}>-</button>
-                  <button className={styles.button}
-                          onClick={() => increaseStat(stat, statName)}>+</button>
+                  <button
+                    className={styles.button}
+                    onClick={() => decreaseStat(stat, statName)}
+                  >
+                    -
+                  </button>
+                  <button
+                    className={styles.button}
+                    onClick={() => increaseStat(stat, statName)}
+                  >
+                    +
+                  </button>
                 </span>
               </div>
             );
