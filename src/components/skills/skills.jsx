@@ -89,12 +89,14 @@ export const Skills = (props) => {
                 {skill[skillName]}
                 {props.profession && renderSkillsBonus(skill, props.profession.skillBonus)}
                 <button
+                  type="button"
                   className={styles.button}
                   onClick={() => decreaseSkill(skill, skillName)}
                 >
                   -
                 </button>
                 <button
+                  type="button"
                   className={styles.button}
                   onClick={() => increaseSkill(skill, skillName)}
                 >
