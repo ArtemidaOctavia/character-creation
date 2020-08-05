@@ -4,7 +4,7 @@ import styles from '../description.module.css';
 const getSkillsWithBonuses = (skills, professionBonus) => skills.map((skill) => {
   professionBonus.forEach((bonusSkill) => {
     if (skill.name === bonusSkill.name) {
-      skill = { ...skill, ['value']: skill.value + bonusSkill.value };
+      skill = { ...skill, value: skill.value + bonusSkill.value };
     }
   });
   return skill;

@@ -8,6 +8,11 @@ const initialState = {
   ageFieldActive: false,
 };
 
+const minHeight = 140;
+const maxHeight = 200;
+const minAge = 16;
+const maxAge = 60;
+
 export const descriptionReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET-NAME':
@@ -21,16 +26,16 @@ export const descriptionReducer = (state = initialState, action) => {
         sex: action.sex,
       };
     case 'SET-HEIGHT':
-      if (action.height > 200) {
+      if (action.height > maxHeight) {
         return {
           ...state,
-          height: 200,
+          height: maxHeight,
         };
       }
-      if (action.height < 140) {
+      if (action.height < minHeight) {
         return {
           ...state,
-          height: 140,
+          height: minHeight,
         };
       }
       return {
@@ -38,16 +43,16 @@ export const descriptionReducer = (state = initialState, action) => {
         height: action.height,
       };
     case 'SET-AGE':
-      if (action.age < 16) {
+      if (action.age < minAge) {
         return {
           ...state,
-          age: 16,
+          age: minAge,
         };
       }
-      if (action.age > 60) {
+      if (action.age > maxAge) {
         return {
           ...state,
-          age: 60,
+          age: maxAge,
         };
       }
       return {
