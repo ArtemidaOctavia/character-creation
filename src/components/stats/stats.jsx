@@ -5,15 +5,15 @@ import styles from './stats.module.css';
 export const Stats = ({
   changeStat, changePoints, statsList, activeStat, activateStat,
 }) => {
-  const skillMinValue = 4;
-  const skillMaxValue = 14;
-  const skillSoftCap = 12;
+  const statMinValue = 4;
+  const statMaxValue = 14;
+  const statSoftCap = 12;
 
   const increaseStat = (stat) => {
-    if (stat.value >= skillMaxValue) {
+    if (stat.value >= statMaxValue) {
       return;
     }
-    if (stat.value < skillSoftCap) {
+    if (stat.value < statSoftCap) {
       changeStat(stat.name, 1);
       changePoints(-1);
     } else {
@@ -23,10 +23,10 @@ export const Stats = ({
   };
 
   const decreaseStat = (stat) => {
-    if (stat.value <= skillMinValue) {
+    if (stat.value <= statMinValue) {
       return;
     }
-    if (stat.value <= skillSoftCap) {
+    if (stat.value <= statSoftCap) {
       changeStat(stat.name, -1);
       changePoints(1);
     } else {
