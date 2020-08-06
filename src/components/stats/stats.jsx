@@ -75,7 +75,7 @@ export const Stats = ({
       </div>
       <div className={styles.description}>
         {activeStat
-        && <StatDescription statsList={statsList} stat={activeStat} />}
+        && <StatDescription stat={activeStat} />}
       </div>
     </div>
   );
