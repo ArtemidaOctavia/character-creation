@@ -5,27 +5,27 @@ import { ProfessionDescription } from './professionDescription/professionDescrip
 export const Profession = ({
   activeProfession, changePoints, activateProfession, professionList,
 }) => {
-  const pickProfession = (profession, professionName) => {
-    if (activeProfession === profession[professionName]) {
+  const pickProfession = (profession) => {
+    if (activeProfession === profession) {
       return;
     }
     if (activeProfession) {
       changePoints(activeProfession.cost);
     }
-    activateProfession(profession[professionName]);
-    changePoints(-profession[professionName].cost);
+    activateProfession(profession);
+    changePoints(-profession.cost);
   };
 
   return (
     <div className={styles.professionHolder}>
       <div className={styles.professionsList}>
         {professionList.map((profession, index) => {
-          const professionName = Object.keys(profession)[0];
+          const professionName = profession.name;
           return (
             <span
-              onClick={() => pickProfession(profession, professionName)}
+              onClick={() => pickProfession(profession)}
               key={index}
-              className={profession[professionName] === activeProfession
+              className={profession === activeProfession
                 ? `${styles.profession} ${styles.active}`
                 : styles.profession}
             >
