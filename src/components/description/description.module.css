@@ -1,0 +1,19 @@
+.active {
+    color: white
+}
+
+.element {
+    margin: 10px;
+}
+
+.trait {
+    margin-right: 5px;
+}
+
+.anthropometric {
+    display: flex;
+}
+
+.environmental {
+  display: flex;
+}

@@ -1,0 +1,32 @@
+.header {
+    margin-bottom: 10px;
+    border: solid white 1px;
+    border-bottom: none;
+    min-width: 650px;
+}
+
+.buttonsHolder {
+    margin-bottom: 10px;
+}
+
+.button {
+    margin-left: 30px;
+    margin-right: 20px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border: solid white 1px;
+}
+
+.button:active {
+    background-color: grey;
+}
+
+.points {
+    border: solid white 1px;
+    padding: 5px;
+}
+
+.error {
+    color: red;
+}

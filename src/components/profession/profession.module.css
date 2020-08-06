@@ -1,0 +1,22 @@
+.profession {
+    display: block
+}
+
+.professionHolder {
+    display: flex;
+}
+
+.professionsList {
+    display: inline-block;
+    width: 40%;
+    margin-left: 10px;
+}
+
+.professionDescription {
+    display: inline-block;
+    width: 40%;
+}
+
+.active {
+    color: white;
+}
